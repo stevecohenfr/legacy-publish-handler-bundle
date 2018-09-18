@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <metadata>
+        <name>Smile Publish Handler To Symfony</name>
+        <version>1.0</version>
+        <copyright>Copyright (C) 2018 Steve Cohen, SMILE Group. All rights reserved.</copyright>
+    </metadata>
+    <dependencies>
+        <requires>
+        </requires>
+    </dependencies>
+</software>
