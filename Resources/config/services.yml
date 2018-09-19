@@ -2,8 +2,7 @@ parameters:
   legacy.publish.handler.class: SteveCohenFr\LegacyPublishHandlerBundle\Services\LegacyPublishHandler
 
 services:
-    legacy.publish.handler:
+    stevecohenfr.legacy.publish.handler:
         class: '%legacy.publish.handler.class%'
         arguments:
         - "@ezpublish.api.repository"
-        - !tagged legacy.publish_handler

@@ -10,21 +10,22 @@ interface LegacyPublishHandlerInterface
 
     /**
      * This function is called from legacy part before an object publication (called by workflow)
+     * You must link the "before publish" trigger to the custom workflow
      *
-     * @param Content          $content              The legacy object
-     * @param String           $contentObjectVersion The object version
+     * @param Content          $content The legacy object
+     * @param int              $version The object version
      *
      */
-    function beforePublish(Content $content, $contentObjectVersion);
+    function beforePublish(Content $content, $version);
 
     /**
      * This function is called from legacy part after an object publication (called by workflow)
-     * You need to link the afterPublish trigger to the custom workflow
+     * You must link the "after publish" trigger to the custom workflow
      *
-     * @param Content          $content              The legacy object
-     * @param String           $contentObjectVersion The object version
+     * @param Content          $content The legacy object
+     * @param int              $version The object version
      *
      */
-    function afterPublish(Content $content, $contentObjectVersion);
+    function afterPublish(Content $content, $version);
 
 }

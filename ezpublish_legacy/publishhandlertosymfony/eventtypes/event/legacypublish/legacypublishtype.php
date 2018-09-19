@@ -14,7 +14,7 @@ class LegacyPublishType extends eZWorkflowEventType
         eZDebug::writeDebug('Executing' . __METHOD__);
         $parameters = $process->attribute('parameter_list');
         $serviceContainer = ezpKernel::instance()->getServiceContainer();
-        $legacyObjectHandler = $serviceContainer->get('legacy.publish.handler');
+        $legacyObjectHandler = $serviceContainer->get('stevecohenfr.legacy.publish.handler');
 
         switch ($parameters["trigger_name"]) {
             case "pre_publish":

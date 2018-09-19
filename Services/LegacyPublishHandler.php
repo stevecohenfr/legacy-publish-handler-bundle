@@ -9,14 +9,19 @@ use SteveCohenFr\LegacyPublishHandlerBundle\Classes\LegacyPublishHandlerInterfac
 class LegacyPublishHandler
 {
 
-    protected $contentService;
+    private $contentService;
 
-    protected $handlers;
+    private $handlers;
 
-    public function __construct(Repository $repository, iterable $handlers)
+    public function __construct(Repository $repository)
     {
         $this->contentService = $repository->getContentService();
-        $this->handlers = $handlers;
+        $this->handlers = array();
+    }
+
+    public function addHandler(LegacyPublishHandlerInterface $handler)
+    {
+        $this->handlers[] = $handler;
     }
 
     /**
@@ -33,7 +38,7 @@ class LegacyPublishHandler
         $content = $this->legacyObjectToContent($object);
         /** @var LegacyPublishHandlerInterface $handler */
         foreach ($this->handlers as $handler) {
-            $handler->beforePublish($content, $contentObjectVersion);
+            $handler->beforePublish($content, (int)$contentObjectVersion);
         }
     }
 
@@ -52,7 +57,7 @@ class LegacyPublishHandler
         $content = $this->legacyObjectToContent($object);
         /** @var LegacyPublishHandlerInterface $handler */
         foreach ($this->handlers as $handler) {
-            $handler->afterPublish($content, $contentObjectVersion);
+            $handler->afterPublish($content, (int)$contentObjectVersion);
         }
     }
 
