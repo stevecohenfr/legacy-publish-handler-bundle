@@ -63,7 +63,7 @@ Step 3: Create the workflow and trigger it
 - Go to Administration -> Workflows
 - Create a new workflow group or use "Standard"
 - Create a new Workflow process and name it as you want
-- In the dropdown choose "Smile Publish Handler
+- In the dropdown choose "Legacy Publish Handler
 - Save
 - Go to Administration -> Triggers
 - At the line "content publish after" or "content publish before", use the dropdown to choose your previously created Worlflow
