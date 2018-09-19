@@ -5,7 +5,7 @@ namespace Smile\LegacyPublishHandlerBundle\Classes;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
 
-interface ISmileLegacyPublishHandler
+interface SmileLegacyPublishHandlerInterface
 {
 
     /**

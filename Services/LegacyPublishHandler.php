@@ -4,7 +4,7 @@ namespace Smile\LegacyPublishHandlerBundle\Services;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\Core\SignalSlot\Repository;
-use Smile\LegacyPublishHandlerBundle\Classes\ISmileLegacyPublishHandler;
+use Smile\LegacyPublishHandlerBundle\Classes\SmileLegacyPublishHandlerInterface;
 
 class LegacyPublishHandler
 {
@@ -31,7 +31,7 @@ class LegacyPublishHandler
     function beforePublish(\eZContentObject $object, $contentObjectVersion)
     {
         $content = $this->legacyObjectToContent($object);
-        /** @var ISmileLegacyPublishHandler $handler */
+        /** @var SmileLegacyPublishHandlerInterface $handler */
         foreach ($this->handlers as $handler) {
             $handler->beforePublish($content, $contentObjectVersion);
         }
@@ -50,7 +50,7 @@ class LegacyPublishHandler
     function afterPublish(\eZContentObject $object, $contentObjectVersion)
     {
         $content = $this->legacyObjectToContent($object);
-        /** @var ISmileLegacyPublishHandler $handler */
+        /** @var SmileLegacyPublishHandlerInterface $handler */
         foreach ($this->handlers as $handler) {
             $handler->afterPublish($content, $contentObjectVersion);
         }

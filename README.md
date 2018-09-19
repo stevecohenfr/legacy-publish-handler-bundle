@@ -51,14 +51,14 @@ services:
         tags: ['smile.legacy_publish_handler']
 ```
 
-`ACME\ACMEBundle\Handlers\OnPublishHandler`
+`ACME\ACMEBundle\Handlers\OnPublishHandler.php`
 ```php
 namespace ACME\ACMEBundle\Handlers;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
-use Smile\LegacyPublishHandlerBundle\Classes\ISmileLegacyPublishHandler;
+use Smile\LegacyPublishHandlerBundle\Classes\SmileLegacyPublishHandlerInterface;
 
-class OnPublishHandler implements ISmileLegacyPublishHandler
+class OnPublishHandler implements SmileLegacyPublishHandlerInterface
 {
     /**
      * This function is called from legacy part before an object publication (called by workflow)
