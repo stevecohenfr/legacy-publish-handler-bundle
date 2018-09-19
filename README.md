@@ -1,4 +1,4 @@
-# SmileLegacyPublishHandlerBundle
+# LegacyPublishHandlerBundle
 Bundle to handle content pre/post publish from LegacyBridge to Symfony
 
 Installation
@@ -37,7 +37,7 @@ in the ``app/AppKernel.php`` file of your project:
             $bundles = array(
                 // ...
 
-                new SteveCohenFr/LegacyPublishHandlerBundle/SteveCohenFrLegacyPublishHandlerBundle(),
+                new SteveCohenFr\LegacyPublishHandlerBundle\SteveCohenFrLegacyPublishHandlerBundle(),
             );
 
             // ...
