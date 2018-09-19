@@ -9,7 +9,7 @@ following command to download the latest stable version of this bundle:
 
 ```bash
 
-    $ composer require stevecohenfr/SmileLegacyPublishHandlerBundle "~1.0.*"
+    $ composer require stevecohenfr/smile-legacy-publish-handler-bundle "~1.0.*"
 ```
 
 This command requires you to have Composer installed globally, as explained

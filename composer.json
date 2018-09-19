@@ -1,5 +1,5 @@
 {
-  "name" : "stevecohenfr/SmileLegacyPublishHandlerBundle",
+  "name" : "stevecohenfr/smile-legacy-publish-handler-bundle",
   "description" : "Bundle to handle content pre/post publish from LegacyBridge to Symfony",
   "type" : "symfony-bundle",
   "authors" : [{
