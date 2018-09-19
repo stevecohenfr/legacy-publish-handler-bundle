@@ -1,4 +1,4 @@
-# SmileLegacyPublishHandlerBundle
+# LegacyPublishHandlerBundle
 Bundle to handle content pre/post publish from LegacyBridge to Symfony
 
 Installation
@@ -37,7 +37,7 @@ in the ``app/AppKernel.php`` file of your project:
             $bundles = array(
                 // ...
 
-                new SteveCohenFr/LegacyPublishHandlerBundle/SteveCohenFrLegacyPublishHandlerBundle(),
+                new SteveCohenFr\LegacyPublishHandlerBundle\SteveCohenFrLegacyPublishHandlerBundle(),
             );
 
             // ...
@@ -47,13 +47,23 @@ in the ``app/AppKernel.php`` file of your project:
     }
 ```
 
+Deploy the legacy extension:
+```bash
+php bin/console ezpublish:legacybundles:install_extensions --relative
+```
+
+And clear the cache:
+```bash
+php bin/console cache:clear
+```
+
 Step 3: Create the workflow and trigger it
 ------------------------------------------
 
 - Go to Administration -> Workflows
 - Create a new workflow group or use "Standard"
 - Create a new Workflow process and name it as you want
-- In the dropdown choose "Smile Publish Handler
+- In the dropdown choose "Legacy Publish Handler
 - Save
 - Go to Administration -> Triggers
 - At the line "content publish after" or "content publish before", use the dropdown to choose your previously created Worlflow
