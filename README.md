@@ -47,6 +47,16 @@ in the ``app/AppKernel.php`` file of your project:
     }
 ```
 
+Deploy the legacy extension:
+```bash
+php bin/console ezpublish:legacybundles:install_extensions --relative
+```
+
+And clear the cache:
+```bash
+php bin/console cache:clear
+```
+
 Step 3: Create the workflow and trigger it
 ------------------------------------------
 
