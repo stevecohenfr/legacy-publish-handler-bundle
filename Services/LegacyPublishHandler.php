@@ -1,10 +1,10 @@
 <?php
 
-namespace Smile\LegacyPublishHandlerBundle\Services;
+namespace SteveCohenFr\LegacyPublishHandlerBundle\Services;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\Core\SignalSlot\Repository;
-use Smile\LegacyPublishHandlerBundle\Classes\SmileLegacyPublishHandlerInterface;
+use SteveCohenFr\LegacyPublishHandlerBundle\Classes\LegacyPublishHandlerInterface;
 
 class LegacyPublishHandler
 {
@@ -31,7 +31,7 @@ class LegacyPublishHandler
     function beforePublish(\eZContentObject $object, $contentObjectVersion)
     {
         $content = $this->legacyObjectToContent($object);
-        /** @var SmileLegacyPublishHandlerInterface $handler */
+        /** @var LegacyPublishHandlerInterface $handler */
         foreach ($this->handlers as $handler) {
             $handler->beforePublish($content, $contentObjectVersion);
         }
@@ -50,7 +50,7 @@ class LegacyPublishHandler
     function afterPublish(\eZContentObject $object, $contentObjectVersion)
     {
         $content = $this->legacyObjectToContent($object);
-        /** @var SmileLegacyPublishHandlerInterface $handler */
+        /** @var LegacyPublishHandlerInterface $handler */
         foreach ($this->handlers as $handler) {
             $handler->afterPublish($content, $contentObjectVersion);
         }

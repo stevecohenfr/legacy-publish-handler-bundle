@@ -9,7 +9,7 @@ following command to download the latest stable version of this bundle:
 
 ```bash
 
-    $ composer require stevecohenfr/smile-legacy-publish-handler-bundle "~1.0.*"
+    $ composer require stevecohenfr/legacy-publish-handler-bundle "~1.0.*"
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -34,7 +34,7 @@ in the ``app/AppKernel.php`` file of your project:
             $bundles = array(
                 // ...
 
-                new Smile/LegacyPublishHandlerBundle/SmileLegacyPublishHandlerBundle(),
+                new SteveCohenFr/LegacyPublishHandlerBundle/SteveCohenFrLegacyPublishHandlerBundle(),
             );
 
             // ...
@@ -43,5 +43,3 @@ in the ``app/AppKernel.php`` file of your project:
         // ...
     }
 ```
-
-Documentation in progress...

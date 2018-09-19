@@ -1,11 +1,11 @@
 <?php
 
-namespace Smile\LegacyPublishHandlerBundle\Classes;
+namespace SteveCohenFr\LegacyPublishHandlerBundle\Classes;
 
 
 use eZ\Publish\API\Repository\Values\Content\Content;
 
-interface SmileLegacyPublishHandlerInterface
+interface LegacyPublishHandlerInterface
 {
 
     /**

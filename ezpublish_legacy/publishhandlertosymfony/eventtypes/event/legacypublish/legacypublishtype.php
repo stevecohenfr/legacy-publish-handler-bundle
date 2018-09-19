@@ -1,12 +1,12 @@
 <?php
 
-class SmilePublishType extends eZWorkflowEventType
+class LegacyPublishType extends eZWorkflowEventType
 {
-    const WORKFLOW_TYPE_STRING = "smilepublish";
+    const WORKFLOW_TYPE_STRING = "legacypublish";
 
     public function __construct()
     {
-        parent::__construct( SmilePublishType::WORKFLOW_TYPE_STRING, 'Smile Publish Handler' );
+        parent::__construct( LegacyPublishType::WORKFLOW_TYPE_STRING, 'Legacy Publish Handler' );
     }
 
     public function execute($process, $event)
@@ -14,7 +14,7 @@ class SmilePublishType extends eZWorkflowEventType
         eZDebug::writeDebug('Executing' . __METHOD__);
         $parameters = $process->attribute('parameter_list');
         $serviceContainer = ezpKernel::instance()->getServiceContainer();
-        $legacyObjectHandler = $serviceContainer->get('smile.legacy.publish.handler');
+        $legacyObjectHandler = $serviceContainer->get('legacy.publish.handler');
 
         switch ($parameters["trigger_name"]) {
             case "pre_publish":
@@ -31,4 +31,4 @@ class SmilePublishType extends eZWorkflowEventType
         return eZWorkflowType::STATUS_ACCEPTED;
     }
 }
-eZWorkflowEventType::registerEventType( SmilePublishType::WORKFLOW_TYPE_STRING, 'smilepublishtype' );
+eZWorkflowEventType::registerEventType( LegacyPublishType::WORKFLOW_TYPE_STRING, 'legacypublishtype' );

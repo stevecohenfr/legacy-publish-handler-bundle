@@ -1,9 +1,9 @@
 parameters:
-  smile.legacy.publish.handler.class: Smile\LegacyPublishHandlerBundle\Services\LegacyPublishHandler
+  legacy.publish.handler.class: SteveCohenFr\LegacyPublishHandlerBundle\Services\LegacyPublishHandler
 
 services:
-    smile.legacy.publish.handler:
-        class: '%smile.legacy.publish.handler.class%'
+    legacy.publish.handler:
+        class: '%legacy.publish.handler.class%'
         arguments:
         - "@ezpublish.api.repository"
-        - !tagged smile.legacy_publish_handler
+        - !tagged legacy.publish_handler

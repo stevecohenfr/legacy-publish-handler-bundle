@@ -1,12 +1,11 @@
 {
-  "name" : "stevecohenfr/smile-legacy-publish-handler-bundle",
+  "name" : "stevecohenfr/legacy-publish-handler-bundle",
   "description" : "Bundle to handle content pre/post publish from LegacyBridge to Symfony",
   "type" : "symfony-bundle",
   "authors" : [{
     "name" : "Steve Cohen",
     "email" : "cohensteve@hotmail.fr",
-    "homepage" : "https://www.smile.eu",
-    "role" : "Developer at Smile Company"
+    "homepage" : "https://stevecohen.fr"
   }],
   "keywords" : [
     "ezpublish ezplatform legacy legacybridge signal slots signalslots edithandler workflow"
@@ -18,11 +17,10 @@
     "ezsystems/ezpublish-kernel": "^6.11|^7.0"
   },
   "autoload" : {
-    "psr-0" : {
-      "Smile\\SmileLegacyPublishHandlerBundle" : ""
+    "psr-4" : {
+      "SteveCohenFr\\LegacyPublishHandlerBundle\\" : ""
     }
   },
-  "target-dir" : "Smile/LegacyPublishHandlerBundle",
   "extra": {
     "branch-alias": {
       "dev-master": "1.0.x-dev"

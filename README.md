@@ -1,35 +1,54 @@
 # SmileLegacyPublishHandlerBundle
 Bundle to handle content pre/post publish from LegacyBridge to Symfony
 
-## Install
+Installation
+============
 
-Clone the bundle
+Step 1: Download the Bundle
+---------------------------
+
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
+
 ```bash
-cd src/
-mkdir Smile
-cd Smile/
-git clone git@github.com:stevecohenfr/SmileLegacyPublishHandlerBundle.git LegacyPublishHandlerBundle
+
+    $ composer require stevecohenfr/legacy-publish-handler-bundle "~1.0.*"
 ```
 
-Add it to the `AppKernel.php`
+This command requires you to have Composer installed globally, as explained
+in the [installation chapter](https://getcomposer.org/doc/00-intro.md) of the Composer documentation.
+
+Step 2: Enable the Bundle
+-------------------------
+
+Then, enable the bundle by adding it to the list of registered bundles
+in the ``app/AppKernel.php`` file of your project:
+
 ```php
-$bundles = [
-   [...],
-   new Smile\LegacyPublishHandlerBundle\SmileLegacyPublishHandlerBundle(),
+
+    <?php
+    // app/AppKernel.php
+
+    // ...
+    class AppKernel extends Kernel
+    {
+        public function registerBundles()
+        {
+            $bundles = array(
+                // ...
+
+                new SteveCohenFr/LegacyPublishHandlerBundle/SteveCohenFrLegacyPublishHandlerBundle(),
+            );
+
+            // ...
+        }
+
+        // ...
+    }
 ```
 
-Clear cache:
-```bash
-php bin/console cache:clear --env=dev
-```
-
-## Install the legacy extension
-
-```bash
-php bin/console ezpublish:legacy:assets_install --relative --symlink web
-```
-
-## Create the workflow and trigger it
+Step 3: Create the workflow and trigger it
+------------------------------------------
 
 - Go to Administration -> Workflows
 - Create a new workflow group or use "Standard"
@@ -39,16 +58,17 @@ php bin/console ezpublish:legacy:assets_install --relative --symlink web
 - Go to Administration -> Triggers
 - At the line "content publish after" or "content publish before", use the dropdown to choose your previously created Worlflow
 
-## Handle the publish event
+Step 4: Handle the publish event
+--------------------------------
 
-This handler use the tag 'smile.legacy_publish_handler' :
+This handler use the tag 'legacy.publish_handler' :
 
 `service.yml`
 ```yml
 services:
     on_publish_handler:
         class: ACME\ACMEBundle\Handlers\OnPublishHandler
-        tags: ['smile.legacy_publish_handler']
+        tags: ['legacy.publish_handler']
 ```
 
 `ACME\ACMEBundle\Handlers\OnPublishHandler.php`
@@ -56,9 +76,9 @@ services:
 namespace ACME\ACMEBundle\Handlers;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
-use Smile\LegacyPublishHandlerBundle\Classes\SmileLegacyPublishHandlerInterface;
+use SteveCohenFr\LegacyPublishHandlerBundle\Classes\LegacyPublishHandlerInterface;
 
-class OnPublishHandler implements SmileLegacyPublishHandlerInterface
+class OnPublishHandler implements LegacyPublishHandlerInterface
 {
     /**
      * This function is called from legacy part before an object publication (called by workflow)
@@ -69,6 +89,7 @@ class OnPublishHandler implements SmileLegacyPublishHandlerInterface
      */
     function beforePublish(Content $content, $contentObjectVersion)
     {
+        //TODO this function will be called before the content is published
     }
 
     /**
@@ -81,7 +102,7 @@ class OnPublishHandler implements SmileLegacyPublishHandlerInterface
      */
     function afterPublish(Content $content, $contentObjectVersion)
     {
-       //TODO your code here
+       //TODO this function will be called after the content is published
     }
 }
 ```

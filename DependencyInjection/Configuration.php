@@ -1,6 +1,6 @@
 <?php
 
-namespace Smile\LegacyPublishHandlerBundle\DependencyInjection;
+namespace SteveCohenFr\LegacyPublishHandlerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('smile_legacy_publish_handler');
+        $rootNode = $treeBuilder->root('stevecohenfr_legacy_publish_handler');
 
         return $treeBuilder;
     }
