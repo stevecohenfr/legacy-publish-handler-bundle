@@ -12,7 +12,7 @@ following command to download the latest stable version of this bundle:
 
 ```bash
 
-    $ composer require stevecohenfr/legacy-publish-handler-bundle "~1.0.*"
+    $ composer require stevecohenfr/legacy-publish-handler-bundle:"*"
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -78,7 +78,8 @@ This handler use the tag 'legacy.publish_handler' :
 services:
     on_publish_handler:
         class: ACME\ACMEBundle\Handlers\OnPublishHandler
-        tags: ['legacy.publish_handler']
+        tags:
+            - { name: stevecohenfr.legacy_publish_handler }
 ```
 
 `ACME\ACMEBundle\Handlers\OnPublishHandler.php`
@@ -92,25 +93,26 @@ class OnPublishHandler implements LegacyPublishHandlerInterface
 {
     /**
      * This function is called from legacy part before an object publication (called by workflow)
+     * You must link the "before publish" trigger to the custom workflow
      *
      * @param Content $content              The legacy object
-     * @param String  $contentObjectVersion The object version
+     * @param int     $version              The object version
      *
      */
-    function beforePublish(Content $content, $contentObjectVersion)
+    function beforePublish(Content $content, $version)
     {
         //TODO this function will be called before the content is published
     }
 
     /**
      * This function is called from legacy part after an object publication (called by workflow)
-     * You need to link the afterPublish trigger to the custom workflow
+     * You must link the "after publish" trigger to the custom workflow
      *
      * @param Content $content              The legacy object
-     * @param String  $contentObjectVersion The object version
+     * @param int     $version              The object version
      *
      */
-    function afterPublish(Content $content, $contentObjectVersion)
+    function afterPublish(Content $content, $version)
     {
        //TODO this function will be called after the content is published
     }
